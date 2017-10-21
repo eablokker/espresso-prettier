@@ -23,6 +23,8 @@ To use your own custom configuration, you can configure Prettier via:
 The configuration file will be resolved starting from the location of the file being formatted,
 and searching up the file tree until a config file is found.
 
+Some examples of how to make configuration files can be found on [Prettier's Github page](https://github.com/prettier/prettier#basic-configuration).
+
 A list of configuration options can be found on [prettier.io](https://prettier.io/docs/en/options.html).
 
 ## Installation
