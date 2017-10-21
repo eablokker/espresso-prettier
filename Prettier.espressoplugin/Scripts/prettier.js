@@ -3,19 +3,12 @@
 var yargs = require('../ScriptLibraries/node_modules/yargs');
 var prettier = require('../ScriptLibraries/node_modules/prettier');
 var spawn = require('child_process').spawn;
-var fs = require('fs');
 
 var argv = yargs
 	.option('input', {
 		alias: 'i',
 		describe: 'The string of Javascript to comb',
 		type: 'string'
-	})
-	.option('processFile', {
-		alias: 'f',
-		describe: 'Process entire editorPath file',
-		default: 'false',
-		type: 'boolean'
 	})
 	.option('config', {
 		alias: 'c',
@@ -103,20 +96,7 @@ var config = getConfig();
 // Make sure it knows where to look to parse file
 config.filepath = editorPath;
 
-if (argv.processFile) {
-	fs.readFile(editorPath, { encoding: 'utf8' }, function(err, data) {
-		if (err && err.path) {
-			errorDialog('Error: no such file or directory\n\n' + err.path);
-			return;
-		} else if (err) {
-			errorDialog(err);
-			return;
-		}
-		formatCode(data);
-	});
-} else {
-	formatCode(selection);
-}
+formatCode(selection);
 
 function formatCode(string) {
 	var formatted = '';
