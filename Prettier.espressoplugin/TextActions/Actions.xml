@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-recipes>
+	<action id="com.austenblokker.prettier.format" category="actions.prettier/prettier.format/0">
+		<script>prettierAction.js</script>
+		<title>Format Code</title>
+
+		<language-context>js, ts, css, scss, sass, less, json, graphql</language-context>
+		<!-- <syntax-context>language-root</syntax-context> -->
+		<when-disabled>hide</when-disabled>
+		<key-equivalent>control shift p</key-equivalent>
+	</action>
+
+	<action id="com.austenblokker.prettier.settings" category="actions.prettier/prettier.settings/0">
+		<script>settingsAction.js</script>
+		<title>Custom Config…</title>
+
+		<language-context>js, ts, css, scss, sass, less, json, graphql</language-context>
+		<when-disabled>hide</when-disabled>
+	</action>
+
+</action-recipes>

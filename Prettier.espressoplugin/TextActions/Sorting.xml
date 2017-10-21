@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<action-sort-instructions>
+
+	<sort-template>
+		<selector>prettier.format</selector>
+		<selector>prettier.settings</selector>
+	</sort-template>
+
+</action-sort-instructions>
