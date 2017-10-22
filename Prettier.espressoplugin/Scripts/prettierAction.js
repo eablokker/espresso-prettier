@@ -37,11 +37,12 @@ action.performWithContext = function(context, outError) {
 			}
 
 			var insertedSnippetEnd = context.selectedRanges[0].location;
-			var newLineRange = context.lineStorage.lineRangeForIndex(insertedSnippetEnd);
+			var newLineRange = new Range(insertedSnippetEnd, 0);
 
 			// Remove newline added by Prettier
-			if (args.removeNewlines === true) {
+			if (args.removeNewlines === true && sel.length >= 1) {
 				var removeNewLineRecipe = new CETextRecipe();
+				newLineRange = context.lineStorage.lineRangeForIndex(insertedSnippetEnd);
 				removeNewLineRecipe.deleteRange(newLineRange);
 				if (!context.applyTextRecipe(removeNewLineRecipe)) return false;
 			}
