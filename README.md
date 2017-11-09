@@ -1,8 +1,8 @@
 # Prettier plugin for Espresso 5
-This is a plugin for MacRabbit's [Espresso](http://macrabbit.com/espresso/) code editor with support for the [Prettier](https://github.com/prettier/prettier) plugin.
+This is a plugin for MacRabbit's [Espresso](https://espressoapp.com/) code editor with support for the [Prettier](https://github.com/prettier/prettier) plugin.
 
 ## Requirements
-- [Espresso v3+](http://macrabbit.com/espresso/)
+- [Espresso v3+](https://espressoapp.com/)
 - [Node.js v6+](http://nodejs.org/)
 
 ## Features
@@ -23,9 +23,7 @@ To use your own custom configuration, you can configure Prettier via:
 The configuration file will be resolved starting from the location of the file being formatted,
 and searching up the file tree until a config file is found.
 
-Some examples of how to make configuration files can be found on [Prettier's Github page](https://github.com/prettier/prettier#basic-configuration).
-
-A list of configuration options can be found on [prettier.io](https://prettier.io/docs/en/options.html).
+Some examples of how to make [configuration files](https://prettier.io/docs/en/configuration.html) and a list of [configuration options](https://prettier.io/docs/en/options.html) can be found on [prettier.io](https://prettier.io/docs/en/index.html)
 
 ## Installation
 
