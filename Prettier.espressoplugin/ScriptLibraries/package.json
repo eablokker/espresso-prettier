@@ -8,7 +8,7 @@
 	"author": "Austen Blokker",
 	"license": "MIT",
 	"dependencies": {
-		"prettier": "^1.7.4",
+		"prettier": "^1.8.1",
 		"yargs": "^9.0.1"
 	}
 }
