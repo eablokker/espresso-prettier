@@ -6,7 +6,7 @@ This is a plugin for MacRabbit's [Espresso](http://macrabbit.com/espresso/) code
 - [Node.js v6+](http://nodejs.org/)
 
 ## Features
-This Espresso plugin uses [Prettier](https://github.com/prettier/prettier), an opinionated code formatter with support for JavaScript, ES2017, JSX, TypeScript, CSS, Less, SCSS, JSON, and GraphQL. It removes all original styling and ensures that all outputted code conforms to a consistent style.
+This Espresso plugin uses [Prettier](https://github.com/prettier/prettier), an opinionated code formatter with support for JavaScript, ES2017, JSX, TypeScript, CSS, Less, SCSS, JSON, GraphQL, and Markdown. It removes all original styling and ensures that all outputted code conforms to a consistent style.
 
 ## Usage
 Select *Text > Prettier > Format Code* or choose from the *Actions* dropdown to format your code using Prettier. If you don't want to affect the entire document, you can make one or multiple text selections before performing the action.
