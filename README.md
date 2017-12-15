@@ -14,6 +14,8 @@ Select *Text > Prettier > Format Code* or choose from the *Actions* dropdown to 
 ## Custom configuration
 This plugin uses Prettier's default configuration and honors your Espresso settings regarding tabs and line endings.
 
+If your project has an .editorconfig file, Prettier will use those settings instead of your Espresso settings. You can override the .editorconfig settings by using a custom configuration file.
+
 To use your own custom configuration, you can configure Prettier via:
 
 * A `.prettierrc` file, written in YAML or JSON, with optional extensions: `.yaml/.yml/.json/.js`.
