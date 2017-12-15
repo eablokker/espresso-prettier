@@ -1,6 +1,6 @@
 action.performWithContext = function(context, outError) {
 
-	var snippetOptions = CETextOptionNormalizeIndentationLevel | CETextOptionNormalizeLineEndingCharacters | CETextOptionNormalizeIndentationCharacters;
+	var snippetOptions = CETextOptionNormalizeIndentationLevel | CETextOptionNormalizeLineEndingCharacters;
 
 	var selections = context.selectedRanges;
 	var selection = context.selectedRanges[0];

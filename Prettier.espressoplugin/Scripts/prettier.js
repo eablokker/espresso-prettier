@@ -46,7 +46,7 @@ var argv = yargs
 	.argv;
 
 var selection = argv.input || process.env.EDITOR_SELECTION;
-var useTabs = argv.useTabs || process.env.TM_SOFT_TABS === 'YES' ? false : true;
+var useTabs = argv.useTabs || process.env.TM_SOFT_TABS === 'NO' ? true : false;
 var tabWidth = argv.tabWidth || parseInt(process.env.TM_TAB_SIZE, 10) || 3;
 
 // The absolute path to the file
@@ -60,18 +60,20 @@ var editorProjectPath = argv.editorProjectPath || process.env.EDITOR_PROJECT_PAT
 
 // Get configuration settings primarily from custom config file, secondarily from default config:
 function getConfig() {
+	var defaultConfig = getDefaultConfig();
 	var config = {};
+	var options = {
+		useCache: false,
+		editorconfig: true
+	};
 
-	config = argv.config || prettier.resolveConfig.sync(editorPath);
-
-	if (config === null) {
-		config = getDefaultConfig();
-	}
+	config = argv.config || prettier.resolveConfig.sync(editorPath, options);
 	
-	return config;
+	// Merge default config with custom config
+	return Object.assign({}, defaultConfig, config);
 }
 
-// Default configuration with 'zen' ordering and Espresso style markup:
+// Default configuration with Espresso style markup:
 function getDefaultConfig() {
 	var config = {};
 	
