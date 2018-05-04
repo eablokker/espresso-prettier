@@ -50,13 +50,13 @@ var useTabs = argv.useTabs || process.env.TM_SOFT_TABS === 'NO' ? true : false;
 var tabWidth = argv.tabWidth || parseInt(process.env.TM_TAB_SIZE, 10) || 3;
 
 // The absolute path to the file
-var editorPath = argv.editorPath || process.env.EDITOR_PATH;
+var editorPath = argv.editorPath || process.env.EDITOR_PATH || '';
 
 // The absolute path to the file's parent directory
-var editorDirectoryPath = argv.editorDirectoryPath || process.env.EDITOR_DIRECTORY_PATH;
+var editorDirectoryPath = argv.editorDirectoryPath || process.env.EDITOR_DIRECTORY_PATH || '';
 
 // The absolute path to the file's parent directory
-var editorProjectPath = argv.editorProjectPath || process.env.EDITOR_PROJECT_PATH;
+var editorProjectPath = argv.editorProjectPath || process.env.EDITOR_PROJECT_PATH || '';
 
 // Get configuration settings primarily from custom config file, secondarily from default config:
 function getConfig() {
