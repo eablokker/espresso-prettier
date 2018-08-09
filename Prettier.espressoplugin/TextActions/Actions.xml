@@ -4,7 +4,7 @@
 		<script>prettierAction.js</script>
 		<title>Format Code</title>
 
-		<language-context>js, ts, css, scss, sass, less, json, graphql, markdown</language-context>
+		<language-context>js, ts, css, scss, sass, less, json, graphql, markdown, yaml</language-context>
 		<!-- <syntax-context>language-root</syntax-context> -->
 		<when-disabled>hide</when-disabled>
 		<key-equivalent>control shift p</key-equivalent>
@@ -14,7 +14,7 @@
 		<script>settingsAction.js</script>
 		<title>Custom Config…</title>
 
-		<language-context>js, ts, css, scss, sass, less, json, graphql, markdown</language-context>
+		<language-context>js, ts, css, scss, sass, less, json, graphql, markdown, yaml</language-context>
 		<when-disabled>hide</when-disabled>
 	</action>
 
