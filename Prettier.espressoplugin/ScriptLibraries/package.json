@@ -8,6 +8,7 @@
 	"author": "Austen Blokker",
 	"license": "MIT",
 	"dependencies": {
+		"cocoadialog": "^1.0.5",
 		"prettier": "^1.19.1",
 		"yargs": "^13.3.0"
 	}

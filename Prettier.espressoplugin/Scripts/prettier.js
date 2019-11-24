@@ -2,7 +2,11 @@
 
 var yargs = require('../ScriptLibraries/node_modules/yargs');
 var prettier = require('../ScriptLibraries/node_modules/prettier');
-var spawn = require('child_process').spawn;
+var cocoaDialog = require('../ScriptLibraries/node_modules/cocoadialog').setGlobalOption({
+	// debug: true,
+	stringOutput: true,
+	width: 600
+});
 
 var argv = yargs
 	.option('input', {
@@ -121,14 +125,18 @@ function escapeForShell(message) {
 }
 
 function errorDialog(err) {
-	var osascript = spawn(
-		'osascript',
-		['-e', "tell application \"Espresso\" to display dialog \"" + escapeForShell(err) + "\" buttons \"OK\" default button 1 with title \"Prettier\" with icon caution"],
-		{
-			detached: true,
-			stdio: 'ignore'
-		}
-	);
-
-	osascript.unref();
+	cocoaDialog
+		.textBox()
+		.setTitle('Prettier')
+		.setIcon('caution')
+		.setLabel('Prettier error')
+		.setText(err)
+		.setButtons('Ok')
+		.open()
+		.then(function(result) {
+			//
+		})
+		.catch(function(result) {
+			console.error(result.error);
+		});
 }
