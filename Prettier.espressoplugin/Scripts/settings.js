@@ -8,12 +8,21 @@ var editorPath = process.env.EDITOR_PATH;
 
 // Search for custom config recursively up to the home folder:
 var config = prettier.resolveConfig.sync(editorPath);
+var configFile = prettier.resolveConfigFile.sync(editorPath);
 
-var message;
+var message = '';
 
 if (config !== null) {
 	// Config file found:
-	message = 'Config found:\n\n';
+	message = 'Config found:';
+	message += '\n';
+	message += '\n';
+	message += 'Location';
+	message += '\n';
+	message += configFile;
+	message += '\n\n';
+	message += 'Options';
+	message += '\n';
 	for (var property in config) {
 		if (config.hasOwnProperty(property)) {
 			message += '"' + property + '"' + ': ' + config[property] + '\n';
@@ -22,7 +31,9 @@ if (config !== null) {
 	message += '\n';
 } else {
 	// Error, no config found:
-	message = 'No config found.\n\n';
+	message = 'No config found.';
+	message += '\n';
+	message += '\n';
 	message += 'Prettier first looks in the current folder for the following files:\n\nA "prettier" property in package.json\nA ".prettierrc" file\nA "prettier.config.js" file that exports an object\n\nIf no config is found, then it looks for these files in parent folders up to your home folder.\n\n';
 }
 
