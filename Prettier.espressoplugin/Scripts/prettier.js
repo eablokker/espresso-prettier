@@ -1,11 +1,39 @@
 #!/usr/bin/env node
 
-var yargs = require('../ScriptLibraries/node_modules/yargs');
-var prettier = require('../ScriptLibraries/node_modules/prettier');
-var cocoaDialog = require('../ScriptLibraries/node_modules/cocoadialog').setGlobalOption({
+const yargs = require('../ScriptLibraries/node_modules/yargs');
+const semver = require('../ScriptLibraries/node_modules/semver');
+const cocoaDialog = require('../ScriptLibraries/node_modules/cocoadialog');
+cocoaDialog.setGlobalOption({
 	// debug: true,
-	stringOutput: true,
-	width: 600
+	stringOutput: true
+});
+
+// Display error dialog if Node version is too old
+const validNodeVersion = semver.gte(process.version, 'v10.13.0');
+
+if (!validNodeVersion) {
+	cocoaDialog
+		.okMsgBox()
+		.setTitle('Prettier')
+		.setIcon('caution')
+		.setLabel('Error: Prettier requires Node v10.13.0 or greater. \rYou are running Node ' + process.version + '.\r\rEspresso is using the system Node executable located at \r' + process.execPath)
+		.setButtons('OK')
+		.open()
+			.then(function(result) {
+				//
+			})
+			.catch(function(result) {
+				console.error(result.error);
+			});
+
+	return;
+}
+
+const prettier = require('../ScriptLibraries/node_modules/prettier');
+
+cocoaDialog.setGlobalOption({
+	width: 600,
+	resize: true
 });
 
 var argv = yargs
@@ -131,7 +159,7 @@ function errorDialog(err) {
 		.setIcon('caution')
 		.setLabel('Prettier error')
 		.setText(err)
-		.setButtons('Ok')
+		.setButtons('OK')
 		.open()
 		.then(function(result) {
 			//

@@ -9,7 +9,8 @@
 	"license": "MIT",
 	"dependencies": {
 		"cocoadialog": "^1.0.5",
-		"prettier": "^1.19.1",
+		"prettier": "^2.3.1",
+		"semver": "^7.3.5",
 		"yargs": "^13.3.0"
 	}
 }
