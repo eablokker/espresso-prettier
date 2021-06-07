@@ -1,7 +1,35 @@
 #!/usr/bin/env node
 
-var prettier = require('../ScriptLibraries/node_modules/prettier');
-var spawn = require('child_process').spawn;
+const semver = require('../ScriptLibraries/node_modules/semver');
+const cocoaDialog = require('../ScriptLibraries/node_modules/cocoadialog');
+cocoaDialog.setGlobalOption({
+	// debug: true,
+	stringOutput: true
+});
+
+// Display error dialog if Node version is too old
+const validNodeVersion = semver.gte(process.version, 'v10.13.0');
+
+if (!validNodeVersion) {
+	cocoaDialog
+		.okMsgBox()
+		.setTitle('Prettier')
+		.setIcon('caution')
+		.setLabel('Error: Prettier requires Node v10.13.0 or greater. \rYou are running Node ' + process.version + '.\r\rEspresso is using the system Node executable located at \r' + process.execPath)
+		.setButtons('OK')
+		.open()
+			.then(function(result) {
+				//
+			})
+			.catch(function(result) {
+				console.error(result.error);
+			});
+
+	return;
+}
+
+const prettier = require('../ScriptLibraries/node_modules/prettier');
+const spawn = require('child_process').spawn;
 
 // The absolute path to the file
 var editorPath = process.env.EDITOR_PATH;
