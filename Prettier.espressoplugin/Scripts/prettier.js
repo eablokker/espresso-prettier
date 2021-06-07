@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const yargs = require('../ScriptLibraries/node_modules/yargs');
 const semver = require('../ScriptLibraries/node_modules/semver');
 const cocoaDialog = require('../ScriptLibraries/node_modules/cocoadialog');
 cocoaDialog.setGlobalOption({
@@ -29,6 +28,7 @@ if (!validNodeVersion) {
 	return;
 }
 
+const yargs = require('../ScriptLibraries/node_modules/yargs');
 const prettier = require('../ScriptLibraries/node_modules/prettier');
 
 cocoaDialog.setGlobalOption({
